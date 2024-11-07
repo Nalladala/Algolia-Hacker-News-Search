@@ -15,10 +15,12 @@
 .logo {
   height: 40px;
   margin-right: 15px;
+  align-items:flex-start;
 }
 
 .welcome-message {
   font-size: 1.5em;
+  align-items: self-start;
 }
 
 .header-center {
