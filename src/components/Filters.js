@@ -4,6 +4,7 @@ import { fetchNews } from '../redux/actions/newsActions';
 import './Filters.css';
 import { FaFilter } from 'react-icons/fa';
 
+
 const Filters = () => {
   const dispatch = useDispatch();
   const { query } = useSelector((state) => state.news);
