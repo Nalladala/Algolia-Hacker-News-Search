@@ -7,27 +7,40 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    localStorage.setItem('username', username);
-    navigate('/Dashboard');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username && password) {
+      localStorage.setItem('username', username);
+      navigate('/dashboard');
+    } else {
+      alert('Please enter both username and password');
+    }
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+      <form onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter your username"
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };
