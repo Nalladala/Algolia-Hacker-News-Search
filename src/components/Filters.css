@@ -1,0 +1,54 @@
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-toggle-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .filter-toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .filter-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .filter-button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .filter-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .filter-button:active {
+    background-color: #007bff;
+    color: white;
+  }
+  

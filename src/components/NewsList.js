@@ -3,19 +3,18 @@ import { useSelector } from 'react-redux';
 import './NewsList.css';
 
 const NewsList = () => {
-  const news = useSelector(state => state.news.news);
+  const { news } = useSelector((state) => state.news);
 
   return (
     <div className="news-list">
-      <ul>
-        {news.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              {item.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {news.map((item) => (
+        <div className="news-item" key={item.objectID}>
+          <h2>{item.title}</h2>
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            Read more
+          </a>
+        </div>
+      ))}
     </div>
   );
 };

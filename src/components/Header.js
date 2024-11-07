@@ -1,41 +1,18 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { fetchNews } from '../redux/actions/newsActions';
+import React from 'react';
 import './Header.css';
-import { Form, Button } from 'react-bootstrap';
+import SearchBar from './SearchBar';
 
-const Header = () => {
-  const [query, setQuery] = useState('');
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const username = localStorage.getItem('username');
-
-  const handleSearch = () => {
-    dispatch(fetchNews(query));
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('username');
-    navigate('/');
-  };
-
+const Header = ({ username }) => {
   return (
     <header className="header">
-      <h1>{`Welcome, ${username}`}</h1>
-      <div className="search-bar-container">
-        <Form className="search-bar">
-          <Form.Control
-            type="text"
-            placeholder="Search..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-          />
-          <Button onClick={handleSearch}>Search</Button>
-        </Form>
-        <Button onClick={handleLogout} className="logout-button">Logout</Button>
+      <div className="header-left">
+        <img src="/logo.png" alt="Logo" className="logo" />
+        <h1 className="welcome-message">{`Welcome, ${username}`}</h1>
       </div>
+      <div className="header-center">
+        <SearchBar />
+      </div>
+      
     </header>
   );
 };

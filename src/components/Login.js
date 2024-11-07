@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin = () => {
     localStorage.setItem('username', username);
-    navigate('/dashboard');
+    navigate('/Dashboard');
   };
 
   return (
